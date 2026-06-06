@@ -109,85 +109,68 @@
   height: 70px; /* Controls the intensity/height of the wave */
 }
 
-/* The total scrollable zone for this section */
-.scroll-container {
-  height: 300vh; 
-  background-color: #f9f9f9;
-  position: relative;
+.horizontal-section {
+height: 350vh;
+position: relative;
+background: #f9f9f9;
 }
 
-/* This locks onto the screen while you scroll down */
 .sticky-wrapper {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; /* ADD THIS LINE */
-  overflow: hidden; 
+position: sticky;
+top: 0;
+height: 100vh;
+overflow: hidden;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
 }
 
 .section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 2rem;
+text-align: center;
+width: 100%;
+font-size: 2.5rem;
+margin-bottom: 2rem;
+color: #333;
 }
 
-/* The horizontal conveyor belt holding the cards */
 .horizontal-track {
-  display: flex;
-  gap: 3rem;
-  padding: 0 5rem;
-  width: max-content;
-  animation: scroll-sideways linear both;
-  animation-timeline: scroll(root); /* Hooks to the main page scroll */
-  animation-range: 15vh 80vh;
+display: flex;
+gap: 2rem;
+padding-left: 8vw;
+width: max-content;
+
+will-change: transform;
 }
 
-@keyframes scroll-sideways {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-100% + 100vw)); 
-  }
-}
-
-/* Designing individual doctor profile cards */
 .dr-card {
-  width: 350px;
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  text-align: center;
+flex: 0 0 350px;
+
+background: white;
+border-radius: 16px;
+padding: 1.5rem;
+
+box-shadow: 0 12px 30px rgba(0,0,0,.08);
+transition: transform .3s ease;
+}
+
+.dr-card:hover {
+transform: translateY(-8px);
 }
 
 .dr-card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+width: 100%;
+height: 300px;
+object-fit: cover;
+border-radius: 10px;
 }
 
 .dr-card h3 {
-  font-size: 1.3rem;
-  color: #0b5394; /* Match your brand blue */
-  margin-bottom: 0.5rem;
+margin-top: 1rem;
+color: #0b5394;
 }
 
 .dr-card p {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.4;
-}
-
-/* The keyframe that moves the track from right to left */
-@keyframes scroll-sideways {
-  to {
-    transform: translateX(calc(-100% + 100vw));
-  }
+color: #666;
+line-height: 1.5;
 }
