@@ -75,3 +75,36 @@
 #logo:hover {
   background-color: white;
 }
+
+/* Video Banner Section */
+.video-banner {
+  position: relative;
+  width: 100%;
+  height: 75vh; /* Takes up 75% of the viewport height. Adjust as needed! */
+  overflow: hidden;
+  background-color: #000; /* Fallback background */
+}
+
+.video-banner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Forces the video to fill the space without distorting */
+  pointer-events: none; /* Prevents users from clicking to pause it */
+}
+
+/* Wavy Design Blend */
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 70px; /* Controls the intensity/height of the wave */
+}
