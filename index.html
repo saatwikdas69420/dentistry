@@ -2,12 +2,27 @@
   <title>Orthodonic Associates of New England</title>
   <script src="script.js"></script>
   <link rel="style.css"></link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <section id="home">
   <div class="navbar">
     <a href="#register">Register</a>
     <a href="#dashboard">Dashboard</a>
+    <div class="dropdown">
+      <button class="dropbtn">Our Socials
+        <i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-content">
+          <a href="https://www.youtube.com/channel/UC46xdKtTN6MQn-PxZA_1kXw">YouTube <i class="fa fa-youtube-play"></i></a>
+          <a href="https://www.facebook.com/drlalaorthodontics/?ref=br_rs">Facebook <i class="fa fa-facebook-official"></i></a>
+          <a href="https://www.instagram.com/orthodonticassociates_of_ne/">Instagram <i class="fa fa-instagram"></i></a>
+          <a href="https://twitter.com/amitlalaortho">Twitter <i class="fa fa-twitter"></i></a>
+          <a href="https://www.yelp.com/biz/orthodontic-associates-of-new-england-tewksbury">Yelp <i class="fa fa-yelp"></i></a>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJt7mOpbem44kR_wHRGhRaWmM">Google <i class="fa fa-google"></i></a>
+          <a href="">Blog <i class="fa-solid fa-blog"></i></a>
+        </div>
+    </div>
     <div class="dropdown">
       <button class="dropbtn">Our Work
         <i class="fa fa-caret-down"></i>
@@ -23,16 +38,16 @@
       </button>
       <div class="dropdown-content">
         <a href="#meet_dr">Meet the Doctors</a>
-        <a href="#meet_staff">Meet the Staff</a>
+        <a href="#meet_st">Meet the Staff</a>
         <a href="#why_us">Why Us?</a>
-        <a href="#blog">Blog</a>
+        <a href="">Blog</a>
       </div>
     </div>
-    <a href="#home" id="logo"><img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_logo.webp"></img></a>
+    <a href="#home" id="logo"><img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_logo.webp" class="nav-logo" alt="Logo"></img></a>
    </div>
    <div class="video-banner">
     <video autoplay loop muted playsinline>
-      <source src="https://raw.githubusercontent.com/username/repository/main/coolvideo.mp4" type="video/mp4">
+      <source src="https://tdivideo.s3.us-east-2.amazonaws.com/drlalanew.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
     <div class="wave-divider">
@@ -103,13 +118,13 @@
   </div>
 
   <div class="dr-card">
-    <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_elizabeth.webp" alt="Elizabeth">
+    <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_elizabeth2.webp" alt="Elizabeth">
     <h3>ELIZABETH</h3>
     <p>Clinic Manager / Senior Orthodontic Assistant</p>
   </div>
 
   <div class="dr-card">
-    <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_emy.webp" alt="Emy">
+    <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_emy2.webp" alt="Emy">
     <h3>EMY</h3>
     <p>Clinic Manager / Senior Orthodontic Assistant</p>
   </div>
@@ -121,7 +136,7 @@
   </div>
 
   <div class="dr-card">
-    <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_mat.webp" alt="Mat">
+    <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_matt.webp" alt="Mat">
     <h3>MAT</h3>
     <p>Orthodontic Assistant</p>
   </div>
@@ -133,7 +148,7 @@
   </div>
 
   <div class="dr-card">
-    <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_kalika.webp" alt="Kalika">
+    <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_kalika2.webp" alt="Kalika">
     <h3>KALIKA</h3>
     <p>Orthodontic Assistant</p>
   </div>
@@ -142,5 +157,68 @@
 
   </div>
 </section>
+<section id="why_us">
+  <h1 class="section-title">Why Us?</h1>
+  <div class="cards-container">
+    
+    <div class="card card-weekend">
+      <div class="card-caption">Weekend Hours</div>
+      <div class="card-overlay">
+        <h3>Weekend Hours</h3>
+        <p>We understand that life gets busy, so we introduced weekend hours to accommodate as many of our patients as possible.</p>
+      </div>
+    </div>
 
+    <div class="card card-consult">
+      <div class="card-caption">Complimentary Consultation</div>
+      <div class="card-overlay">
+        <h3>Complimentary Consultation</h3>
+        <p>We will create a personalized plan of treatment, catered specifically to your situation, timeframe, and lifestyle.</p>
+      </div>
+    </div>
+
+    <div class="card card-xray">
+      <div class="card-caption">Free X-Ray Analysis</div>
+      <div class="card-overlay">
+        <h3>Free X-Ray Analysis</h3>
+        <p>As part of our commitment to comprehensive oral care, we offer free X-Ray analysis for new patients.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="gallery">
+  <div class="gallery-container">
+    <h1 class="section-title">Smile Gallery</h1>
+    <div class="custom-image-slider" id="customImageSlider">
+      <img class="slider-before" src="before1.png" alt="Before">
+      <img class="slider-after" src="after1.png" alt="After">
+    <div class="slider-handle"></div>
+     <div class="custom-image-slider" id="customImageSlider">
+      <img class="slider-before" src="before2.png" alt="Before">
+      <img class="slider-after" src="after2.png" alt="After">
+    <div class="slider-handle"></div>
+    <div class="custom-image-slider" id="customImageSlider">
+      <img class="slider-before" src="before3.png" alt="Before">
+      <img class="slider-after" src="after3.png" alt="After">
+    <div class="slider-handle"></div>
+    <div class="custom-image-slider" id="customImageSlider">
+      <img class="slider-before" src="before4.png" alt="Before">
+      <img class="slider-after" src="after4.png" alt="After">
+    <div class="slider-handle"></div>
+    <div class="custom-image-slider" id="customImageSlider">
+      <img class="slider-before" src="before5.png" alt="Before">
+      <img class="slider-after" src="after5.png" alt="After">
+    <div class="slider-handle"></div>
+    <div class="custom-image-slider" id="customImageSlider">
+      <img class="slider-before" src="before6.png" alt="Before">
+      <img class="slider-after" src="after6.png" alt="After">
+    <div class="slider-handle"></div>
+    <div class="custom-image-slider" id="customImageSlider">
+      <img class="slider-before" src="before7.png" alt="Before">
+      <img class="slider-after" src="after7.png" alt="After">
+    <div class="slider-handle"></div>
+  </div>
+
+</section>
 </body>
