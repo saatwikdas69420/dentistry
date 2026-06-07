@@ -311,13 +311,23 @@ line-height: 1.5;
 .card:hover .card-overlay {
   opacity: 1;
 }
+
 .custom-image-slider {
     position: relative;
     width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
     overflow: hidden;
     height: 0;
-    padding-bottom: 75%; /* Adjust this value according to your image aspect ratio */
+    padding-bottom: 50%; /* Adjust this value according to your image aspect ratio */
   }
+
+.custom-image-slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; 
+}
 
   .slider-before,
   .slider-after {
@@ -366,4 +376,111 @@ line-height: 1.5;
 .slider-handle::after {
   right: -24px;
   border-left: 16px solid #fff;
+}
+
+#gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 30px;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+#testimonials {
+  padding: 60px 20px;
+  background-color: #f4f7f6; /* Soft background to contrast with white cards */
+  overflow: hidden;
+  text-align: center;
+}
+
+.testimonial-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Fading edges for a polished look */
+.testimonial-slider::before,
+.testimonial-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.testimonial-slider::before {
+  left: 0;
+  background: linear-gradient(to right, #f4f7f6 0%, rgba(244, 247, 246, 0) 100%);
+}
+
+.testimonial-slider::after {
+  right: 0;
+  background: linear-gradient(to left, #f4f7f6 0%, rgba(244, 247, 246, 0) 100%);
+}
+
+.testimonial-track {
+  display: flex;
+  width: max-content;
+  /* 40s duration for a smooth reading speed, adjust as needed */
+  animation: scrollTrack 40s linear infinite; 
+}
+
+/* Pauses the animation when the user hovers over the reviews */
+.testimonial-slider:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+.testimonial-card {
+  width: 350px;
+  background: #ffffff;
+  margin: 0 15px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.stars {
+  color: #FFD700; /* Gold color for stars */
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.review-text {
+  font-style: italic;
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  color: #2c3e50;
+  text-align: right;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+@keyframes scrollTrack {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Shifts exactly half the width of the track (which will contain duplicated content via JS) */
+    transform: translateX(-50%); 
+  }
 }
