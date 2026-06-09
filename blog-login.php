@@ -25,7 +25,7 @@ $user['password']
 ){
 $_SESSION['admin']=true;
 
-header("Location: dashboard.php");
+header("Location: blog-dashboard.php");
 exit;
 }
 }
