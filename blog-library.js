@@ -1,8 +1,8 @@
 const SUPABASE_URL =
-"placeholder";
+"https://krtecekdlsmimoayfrel.supabase.co/rest/v1/";
 
 const SUPABASE_KEY =
-"placeholder";
+"sb_publishable_KbA0BaBoO4hC5y4KuULt9g_B1qRnu8-";
 
 const supabase =
 window.supabase.createClient(
