@@ -31,10 +31,17 @@ async function loadBlogs(){
         "blog-card";
 
         card.innerHTML = `
+        
             <img
+            
                 class="cover-image"
-                src="${blog.image_url}"
+                
+                src="${imageSrc}"
+                
                 alt="${blog.title}"
+                
+                onerror="this.src='images/default-blog-cover.jpg'"
+                
             >
         
             <div class="blog-preview">
