@@ -49,23 +49,20 @@ async function login(){
 async function publishBlog(){
 
     await supabase
-    .from("blogs")
-    .insert([{
+        .from("blogs")
+        .insert([{
 
         title:
-        document.getElementById(
-            "title"
-        ).value,
-
+        document.getElementById("title").value,
+    
         excerpt:
-        document.getElementById(
-            "excerpt"
-        ).value,
-
+        document.getElementById("excerpt").value,
+    
+        image_url:
+        document.getElementById("imageUrl").value,
+    
         content:
-        document.getElementById(
-            "content"
-        ).value
+        document.getElementById("content").value
 
     }]);
 
