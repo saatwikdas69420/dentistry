@@ -31,23 +31,32 @@ async function loadBlogs(){
         "blog-card";
 
         card.innerHTML = `
+            <img
+                class="cover-image"
+                src="${blog.image_url}"
+                alt="${blog.title}"
+            >
+        
             <div class="blog-preview">
+        
                 <h2>${blog.title}</h2>
+        
                 <p>${blog.excerpt}</p>
+        
             </div>
-
+        
             <div class="blog-content">
-
+        
                 <div class="article-body">
-
+        
                     ${blog.content}
-
+        
                     <button class="close-btn">
                         Close Article
                     </button>
-
+        
                 </div>
-
+        
             </div>
         `;
 
