@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['admin'])){
-header("Location: login.php");
+header("Location: blog-login.php");
 exit;
 }
 ?>
