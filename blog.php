@@ -12,7 +12,7 @@ ORDER BY created_at DESC
 <html>
 <head>
     <title>OANE Blog</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
 </head>
 <body>
 
@@ -62,7 +62,7 @@ ORDER BY created_at DESC
 
 </div>
 
-<script src="script.js"></script>
+<script src="blog.js"></script>
 
 </body>
 </html>
