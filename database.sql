@@ -17,3 +17,9 @@ CREATE TABLE blogs (
     author VARCHAR(255),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO users (username, password)
+VALUES (
+    'blog',
+    '$2y$10$BGXoBu.iN2jjsQ9kmcEzeOm2AEg3rChSVbrbMkNxEDZfJywGblxT2'
+);
