@@ -1,0 +1,102 @@
+/* Reusing the core system variables */
+@import url('dashboard.css'); /* Assuming they sit in same directory, this shares base styles */
+
+:root {
+    --primary-blue: #004494; /* Slightly darker for admin feel */
+}
+
+.admin-sidebar {
+    background: #2c3e50;
+    color: white;
+}
+.admin-sidebar h3 { color: white; }
+.admin-sidebar .nav-btn { color: #ecf0f1; }
+.admin-sidebar .nav-btn:hover, .admin-sidebar .nav-btn.active {
+    background: #34495e;
+    color: white;
+}
+
+.badge {
+    background: #e74c3c;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    margin-left: 5px;
+}
+
+/* Data Tables */
+.data-table {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 1fr;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+.row.header {
+    background: var(--bg-light);
+    font-weight: bold;
+}
+.row:last-child { border-bottom: none; }
+
+.small-btn {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+.small-btn.outline {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+}
+
+.patient-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Inbox Layout */
+.inbox-layout {
+    display: flex;
+    gap: 20px;
+    height: 60vh;
+}
+.thread-list {
+    width: 250px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow-y: auto;
+}
+.thread {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+.thread.active {
+    background: var(--bg-light);
+    border-left: 4px solid var(--primary-blue);
+}
+.thread-view {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.ai-note {
+    background: #e2e3e5;
+    color: #383d41;
+    font-size: 0.85rem;
+    font-style: italic;
+    align-self: center;
+    max-width: 90%;
+}
