@@ -1,4 +1,4 @@
-// const supabase = supabase.createClient('URL placeholder', 'ANON_KEY placeholder');
+const supabase = supabase.createClient("https://krtecekdlsmimoayfrel.supabase.co/rest/v1/", "sb_publishable_KbA0BaBoO4hC5y4KuULt9g_B1qRnu8-");
 
 document.getElementById('newPatientForm').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -10,12 +10,9 @@ document.getElementById('newPatientForm').addEventListener('submit', async (e) =
         notes: document.getElementById('notes').value
     };
 
-    // placeholder
-    /*
     const { data, error } = await supabase
         .from('consultation_requests')
         .insert([formData]);
-    */
 
     // Simulate success animation
     const btn = e.target.querySelector('button');
