@@ -1,5 +1,5 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
-const supabase = createClient('https://your-project-id.supabase.co', 'your-anon-key')
+const supabase = createClient('https://nsobqrbbgcqojztfmuwu.supabase.co/rest/v1/', 'sb_publishable_4nRPX_X1Pgur2KIfDHJgIQ_ktILYdZM')
 
 // --- Authentication ---
 document.getElementById('patientLoginForm').addEventListener('submit', async (e) => {
