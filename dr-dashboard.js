@@ -1,9 +1,21 @@
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+const supabase = createClient('https://your-project-id.supabase.co', 'your-anon-key')
+
 // --- Admin Authentication ---
-document.getElementById('drLoginForm').addEventListener('submit', (e) => {
+document.getElementById('drLoginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    // 1. Supabase Auth (Role: Admin/Doctor)
-    document.getElementById('drLoginView').classList.add('hidden');
-    document.getElementById('drDashboardView').classList.remove('hidden');
+    const email = e.target.querySelector('input[type="email"]').value;
+    const password = e.target.querySelector('input[type="password"]').value;
+
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+    if (error) {
+        alert('Access Denied: ' + error.message);
+    } else {
+        document.getElementById('drLoginView').classList.add('hidden');
+        document.getElementById('drDashboardView').classList.remove('hidden');
+        loadUpcomingAppointments(); // Call function to pull data
+    }
 });
 
 document.getElementById('drLogoutBtn').addEventListener('click', () => {
@@ -32,3 +44,26 @@ document.querySelectorAll('.small-btn').forEach(btn => {
         });
     }
 });
+
+async function loadUpcomingAppointments() {
+    const { data, error } = await supabase
+        .from('appointments')
+        .select('*')
+        .eq('status', 'pending');
+
+    if (data) {
+        const table = document.querySelector('.data-table');
+        // Clear old hardcoded data, leaving header
+        table.innerHTML = `<div class="row header"><span>Time</span><span>Patient ID</span><span>Reason</span><span>Action</span></div>`;
+        
+        data.forEach(appt => {
+            table.innerHTML += `
+                <div class="row">
+                    <span>${new Date(appt.appt_date).toLocaleDateString()}</span>
+                    <span>${appt.patient_id || 'New Request'}</span>
+                    <span>${appt.notes || 'Consultation'}</span>
+                    <button class="small-btn">Manage</button>
+                </div>`;
+        });
+    }
+}
