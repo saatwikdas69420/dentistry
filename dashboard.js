@@ -1,14 +1,28 @@
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+const supabase = createClient('https://your-project-id.supabase.co', 'your-anon-key')
+
 // --- Authentication ---
-document.getElementById('patientLoginForm').addEventListener('submit', (e) => {
+document.getElementById('patientLoginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    // 1. Call Supabase Auth here
-    // 2. On success, show dashboard:
-    document.getElementById('loginView').classList.add('hidden');
-    document.getElementById('dashboardView').classList.remove('hidden');
+    const phone = document.getElementById('loginPhone').value;
+    const password = document.getElementById('loginPassword').value;
+
+    // Standard Supabase email sign-in login
+    const { data, error } = await supabase.auth.signInWithPassword({
+        email: `${phone}@patient.com`, 
+        password: password
+    });
+
+    if (error) {
+        alert('Login failed: ' + error.message);
+    } else {
+        document.getElementById('loginView').classList.add('hidden');
+        document.getElementById('dashboardView').classList.remove('hidden');
+    }
 });
 
-document.getElementById('logoutBtn').addEventListener('click', () => {
-    // Call Supabase SignOut here
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await supabase.auth.signOut();
     document.getElementById('dashboardView').classList.add('hidden');
     document.getElementById('loginView').classList.remove('hidden');
 });
@@ -52,13 +66,26 @@ document.getElementById('sendMsgBtn').addEventListener('click', async () => {
 });
 
 // --- Progress Logger ---
-document.getElementById('hygieneForm').addEventListener('submit', (e) => {
+document.getElementById('hygieneForm').addEventListener('submit', async (e) => {
     e.preventDefault();
-    const brushCount = document.getElementById('brushCount').value;
+    const brushCount = parseInt(document.getElementById('brushCount').value);
     const retainer = document.getElementById('retainerStatus').value;
     
-    // TODO: Insert into Supabase 'hygiene_logs' table
-    alert(`Progress logged! Brushed: ${brushCount} times, Retainers: ${retainer}`);
+    const user = (await supabase.auth.getUser()).data.user;
+
+    const { error } = await supabase
+        .from('hygiene_logs')
+        .insert([{ 
+            patient_id: user.id, 
+            brushing_frequency: brushCount, 
+            retainer_compliance: retainer 
+        }]);
+
+    if (error) {
+        alert('Error saving log: ' + error.message);
+    } else {
+        alert('Progress successfully logged!');
+    }
 });
 
 // --- Insurance Upload ---
