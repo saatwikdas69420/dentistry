@@ -1,4 +1,8 @@
-const supabase = supabase.createClient("https://krtecekdlsmimoayfrel.supabase.co/rest/v1/", "sb_publishable_KbA0BaBoO4hC5y4KuULt9g_B1qRnu8-");
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+const SUPABASE_URL = 'https://nsobqrbbgcqojztfmuwu.supabase.co/rest/v1/'
+const SUPABASE_ANON_KEY = 'sb_publishable_4nRPX_X1Pgur2KIfDHJgIQ_ktILYdZM'
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 document.getElementById('newPatientForm').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -10,9 +14,20 @@ document.getElementById('newPatientForm').addEventListener('submit', async (e) =
         notes: document.getElementById('notes').value
     };
 
+    // Live database insert
     const { data, error } = await supabase
-        .from('consultation_requests')
-        .insert([formData]);
+        .from('appointments') 
+        .insert([
+            { 
+                notes: `NEW PATIENT REQUEST: ${formData.notes}. Email: ${formData.email}`,
+                status: 'pending'
+            }
+        ]);
+    
+    if (error) {
+        alert('Error submitting request: ' + error.message);
+        return;
+    }
 
     // Simulate success animation
     const btn = e.target.querySelector('button');
