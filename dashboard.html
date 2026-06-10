@@ -12,7 +12,7 @@
     <div id="loginView" class="auth-wrapper">
         <div class="auth-box">
             <h2>Patient Login</h2>
-            <p class="auth-help">Accounts are created by our office. Forgot your password? Call us at (555) 123-4567.</p>
+            <p class="auth-help">Accounts are created by our office. Forgot your password? Call us at (978) 250-1961.</p>
             <form id="patientLoginForm">
                 <input type="tel" id="loginPhone" placeholder="Phone Number" required>
                 <input type="password" id="loginPassword" placeholder="Password" required>
@@ -21,14 +21,14 @@
         </div>
     </div>
 
-    <!-- DASHBOARD VIEW (Hidden initially) -->
+    <!-- DASHBOARD VIEW -->
     <div id="dashboardView" class="dashboard-wrapper hidden">
         <aside class="sidebar">
             <h3>My Portal</h3>
             <nav>
                 <button onclick="switchTab('appointments')" class="nav-btn active">Appointments</button>
                 <button onclick="switchTab('progress')" class="nav-btn">Treatment Progress</button>
-                <button onclick="switchTab('messages')" class="nav-btn">Messages / AI Chat</button>
+                <button onclick="switchTab('messages')" class="nav-btn">Messages / Assistant Chat</button>
                 <button onclick="switchTab('billing')" class="nav-btn">Billing & Insurance</button>
             </nav>
             <button id="logoutBtn" class="logout-btn">Log Out</button>
@@ -41,8 +41,8 @@
                 <h2>My Appointments</h2>
                 <button class="primary-btn">Request New Appointment</button>
                 <div class="card">
-                    <h4>Next Visit</h4>
-                    <p>Oct 12, 2026 - 10:00 AM (Checkup)</p>
+                    <h4></h4>
+                    <p></p>
                 </div>
             </section>
 
@@ -73,7 +73,7 @@
                 </div>
                 
                 <div class="chat-window" id="chatWindow">
-                    <div class="msg received">Hello! Ask me questions about brushing, plaque, or leave a message for your doctor.</div>
+                    <div class="msg received">Hello! Ask me questions about your dental hygiene, or leave a message for your doctor.</div>
                 </div>
                 <div class="chat-input-area">
                     <input type="text" id="chatInput" placeholder="Type your message...">
