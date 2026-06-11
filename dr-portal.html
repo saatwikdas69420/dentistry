@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dr-portal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="portalGateLock" class="gate-lock-layer active">
+        <div class="gate-card">
+            <i class="fa fa-lock" style="font-size: 3rem; color: #0b5394; margin-bottom: 15px;"></i>
+            <h2>Clinical Access Portal</h2>
+            <p>Please provide the master practice authentication key to initialize workspace profiles.</p>
+            <form id="gateForm">
+                <input type="password" id="gatePassword" placeholder="Enter Portal Password" required>
+                <button type="submit" class="primary-btn">Unlock Workspace</button>
+            </form>
+            <p id="gateError" style="color: red; margin-top: 10px; font-weight: bold; text-align: center;"></p>
+        </div>
+    </div>
+
+    <div class="portal-wrapper">
+        <aside class="patient-sidebar">
+            <div class="doctor-selector">
+                <label for="activeDocSelect">Current Provider Workspace</label>
+                <select id="activeDocSelect">
+                    <option value="Dr. Amit Lala">Dr. Amit Lala</option>
+                    <option value="Dr. Alana Bednarz">Dr. Alana Bednarz</option>
+                    <option value="Dr. James Metcalf">Dr. James Metcalf</option>
+                    <option value="Dr. Danielle Dorrego">Dr. Danielle Dorrego</option>
+                </select>
+            </div>
+            <h3>Assigned Case Directory</h3>
+            <div class="patient-list" id="patientListContainer">
+                </div>
+        </aside>
+
+        <main class="workspace-area">
+            <div id="emptyState" class="active-workspace-panel active">
+                <div class="empty-notice">
+                    <i class="fa fa-user-md" style="font-size: 4rem; color: #ccc;"></i>
+                    <h2>No Patient Profile Loaded</h2>
+                    <p>Select an individual from the left structural sidebar tracking directory to populate clinical tools.</p>
+                </div>
+            </div>
+
+            <div id="activeWorkspace" class="active-workspace-panel">
+                <div class="workspace-header">
+                    <div>
+                        <h2 id="activePatientName">Patient Account Name</h2>
+                        <span id="insuranceBadge" class="badge">Insurance Checked</span>
+                    </div>
+                    <div class="transfer-box">
+                        <label>Reassign Case File:</label>
+                        <select id="transferDocSelect">
+                            <option value="Dr. Amit Lala">Dr. Amit Lala</option>
+                            <option value="Dr. Alana Bednarz">Dr. Alana Bednarz</option>
+                            <option value="Dr. James Metcalf">Dr. James Metcalf</option>
+                            <option value="Dr. Danielle Dorrego">Dr. Danielle Dorrego</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="workspace-grid">
+                    <div class="work-col">
+                        <div class="portal-card">
+                            <h3>Direct Case Chat Thread</h3>
+                            <div class="chat-box" id="patientChatBox" style="height: 30vh;"></div>
+                            <div class="chat-input-area">
+                                <input type="text" id="patientMsgInput" placeholder="Send clinical note or treatment comment...">
+                                <button id="sendPatientMsgBtn">Send</button>
+                            </div>
+                        </div>
+
+                        <div class="portal-card">
+                            <h3>Routine Habit Tracker Audit</h3>
+                            <div id="patientLogsContainer"></div>
+                        </div>
+                    </div>
+
+                    <div class="work-col">
+                        <div class="portal-card">
+                            <h3>Patient Appointment Requests</h3>
+                            <div id="appointmentRequestsContainer">
+                                <p style="color:#999;">Select a patient to track pending requests.</p>
+                            </div>
+                        </div>
+
+                        <div class="portal-card">
+                            <h3>Prescribe Appointment Directive</h3>
+                            <form id="suggestAppForm" class="inline-form">
+                                <input type="date" id="sugDate" required>
+                                <input type="time" id="sugTime" required>
+                                <button type="submit" class="primary-btn">Schedule Entry</button>
+                            </form>
+                        </div>
+
+                        <div class="portal-card">
+                            <h3>Statement & Billing Generation</h3>
+                            <form id="invoiceForm" class="inline-form">
+                                <input type="text" id="invDesc" placeholder="Treatment description (e.g. Adjustment)" required>
+                                <input type="number" id="invAmount" placeholder="Charge Amount ($)" required>
+                                <button type="submit" class="primary-btn">Post Charge</button>
+                            </form>
+                            <h4 style="margin-top:20px;">Issued Ledger</h4>
+                            <div id="patientLedgerContainer"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="dr-portal.js"></script>
+</body>
+</html>
