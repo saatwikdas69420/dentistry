@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Library | Orthodontic Associates of New England</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-library.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="newpatient.html">Free Consult</a>
+    <a href="dashboard.html">Dashboard</a>
+    <div class="dropdown">
+      <button class="dropbtn">Our Socials
+        <i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-content">
+          <a href="https://www.youtube.com/channel/UC46xdKtTN6MQn-PxZA_1kXw">YouTube <i class="fa fa-youtube-play"></i></a>
+          <a href="https://www.facebook.com/drlalaorthodontics/?ref=br_rs">Facebook <i class="fa fa-facebook-official"></i></a>
+          <a href="https://www.instagram.com/orthodonticassociates_of_ne/">Instagram <i class="fa fa-instagram"></i></a>
+          <a href="https://twitter.com/amitlalaortho">Twitter <i class="fa fa-twitter"></i></a>
+          <a href="https://www.yelp.com/biz/orthodontic-associates-of-new-england-tewksbury">Yelp <i class="fa fa-yelp"></i></a>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJt7mOpbem44kR_wHRGhRaWmM">Google <i class="fa fa-google"></i></a>
+          <a href="blog-library.html">Blog <i class="fa-solid fa-blog"></i></a>
+        </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Our Work
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="index.html/#gallery">Gallery</a>
+        <a href="index.html/#testemonial">Testimonials</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">About Us
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="index.html/#meet_dr">Meet the Doctors</a>
+        <a href="index.html/#meet_st">Meet the Staff</a>
+        <a href="index.html/#why_us">Why Us?</a>
+        <a href="blog-library.html">Blog</a>
+      </div>
+    </div>
+    <a href="#home" id="logo"><img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_logo.webp" class="nav-logo" alt="Logo"></img></a>
+   </div>
+
+    <section id="blog-header">
+        <h1 class="section-title">Orthodontic Insights</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search articles by title...">
+            <button id="searchBtn"><i class="fa fa-search"></i></button>
+        </div>
+    </section>
+
+    <section id="blog-content">
+        <div class="blog-layout">
+            <div class="articles-container" id="articlesContainer">
+                <p>Loading articles...</p>
+                </div>
+
+            <aside class="recommended-sidebar">
+                <h3>Recommended Articles</h3>
+                <ul id="recommendedList">
+                    </ul>
+            </aside>
+        </div>
+    </section>
+
+    <script type="module" src="blog-library.js"></script>
+</body>
+</html>
