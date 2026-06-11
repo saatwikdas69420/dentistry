@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Consultation | Orthodontic Associates of New England</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="new-patient.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="newpatient.html">Free Consult</a>
+    <a href="dashboard.html">Dashboard</a>
+    <div class="dropdown">
+      <button class="dropbtn">Our Socials
+        <i class="fa fa-caret-down"></i>
+      </button>
+        <div class="dropdown-content">
+          <a href="https://www.youtube.com/channel/UC46xdKtTN6MQn-PxZA_1kXw">YouTube <i class="fa fa-youtube-play"></i></a>
+          <a href="https://www.facebook.com/drlalaorthodontics/?ref=br_rs">Facebook <i class="fa fa-facebook-official"></i></a>
+          <a href="https://www.instagram.com/orthodonticassociates_of_ne/">Instagram <i class="fa fa-instagram"></i></a>
+          <a href="https://twitter.com/amitlalaortho">Twitter <i class="fa fa-twitter"></i></a>
+          <a href="https://www.yelp.com/biz/orthodontic-associates-of-new-england-tewksbury">Yelp <i class="fa fa-yelp"></i></a>
+          <a href="https://www.google.com/maps/place/?q=place_id:ChIJt7mOpbem44kR_wHRGhRaWmM">Google <i class="fa fa-google"></i></a>
+          <a href="blog-library.html">Blog <i class="fa-solid fa-blog"></i></a>
+        </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Our Work
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="index.html#gallery">Gallery</a>
+        <a href="index.html#testemonial">Testimonials</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">About Us
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="index.html#meet_dr">Meet the Doctors</a>
+        <a href="index.html#meet_st">Meet the Staff</a>
+        <a href="index.html#why_us">Why Us?</a>
+        <a href="blog-library.html">Blog</a>
+      </div>
+    </div>
+    <a href="index.html#home" id="logo"><img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_logo.webp" class="nav-logo" alt="Logo"></img></a>
+   </div>
+
+    <section class="consult-container">
+        <div class="consult-grid">
+            <div class="consult-card form-card">
+                <h2>Request a Free Consultation</h2>
+                <p>Fill out the form below, and our care team will contact you shortly.</p>
+                <form id="consultForm">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="(555) 555-5555" required>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="name@example.com" required>
+
+                    <label for="date">Preferred Consultation Date</label>
+                    <input type="date" id="date" required>
+
+                    <label for="message">Message / Notes</label>
+                    <textarea id="message" rows="4" placeholder="Tell us about your orthodontic goals..."></textarea>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">Submit Request</button>
+                </form>
+                <div id="formStatus" class="status-msg"></div>
+            </div>
+
+            <div class="consult-card info-card">
+                <h2>Contact Our Offices</h2>
+                <p>Prefer speaking to someone directly? Call one of our convenient locations:</p>
+                
+                <div class="office-location">
+                    <h3><i class="fa fa-map-marker"></i> Tewksbury Office</h3>
+                    <p>Middlesex Shopping Center</p>
+                    <a href="tel:9788512401" class="phone-link"><i class="fa fa-phone"></i>(978) 261-3419</a>
+                </div>
+
+                <div class="office-location">
+                    <h3><i class="fa fa-map-marker"></i>Chelmsford</h3>
+                    <a href="tel:6038809200" class="phone-link"><i class="fa fa-phone"></i>(978) 250-1961</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="new-patient.js"></script>
+</body>
+</html>
