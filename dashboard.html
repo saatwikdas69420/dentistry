@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <aside class="sidebar">
+            <div class="brand">
+                <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_logo.webp" alt="Logo">
+                <h3>Patient Hub</h3>
+            </div>
+            <nav class="menu">
+                <a href="#" class="menu-item active" data-target="appointmentsView"><i class="fa fa-calendar"></i> Appointments</a>
+                <a href="#" class="menu-item" data-target="billingView"><i class="fa fa-credit-card"></i> Finance & Insurance</a>
+                <a href="#" class="menu-item" data-target="chatView"><i class="fa fa-comments"></i> Message Doctor</a>
+                <a href="#" class="menu-item" data-target="aiView"><i class="fa fa-android"></i> Dental AI Assistant</a>
+                <a href="#" class="menu-item" data-target="loggerView"><i class="fa fa-check-square"></i> Routine Logger</a>
+            </nav>
+            <button id="logoutBtn" class="logout-btn"><i class="fa fa-sign-out"></i> Logout</button>
+        </aside>
+
+        <main class="main-content">
+            <div id="authOverlay" class="auth-layer active">
+                <div class="auth-card">
+                    <h2>Patient Sign In</h2>
+                    <p>Credentials provided by your dental office</p>
+                    <form id="loginForm">
+                        <input type="email" id="loginEmail" placeholder="Email Address" required>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                        <button type="submit">Access Dashboard</button>
+                    </form>
+                    <p id="authError" style="color: red; margin-top: 10px;"></p>
+                </div>
+            </div>
+
+            <div id="appointmentsView" class="view-layer dynamic-active">
+                <h2>Your Appointments</h2>
+                <div class="layout-grid">
+                    <div class="dash-card">
+                        <h3>Schedule Request</h3>
+                        <form id="bookAppointmentForm">
+                            <input type="date" id="appDate" required>
+                            <input type="time" id="appTime" required>
+                            <button type="submit" class="accent-btn">Request Date</button>
+                        </form>
+                    </div>
+                    <div class="dash-card">
+                        <h3>Upcoming Commitments</h3>
+                        <div id="appointmentsList"><p>Loading scheduling logs...</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="billingView" class="view-layer">
+                <h2>Finance & Insurance Verification</h2>
+                <div class="layout-grid">
+                    <div class="dash-card">
+                        <h3>Statement Overview</h3>
+                        <div id="invoiceList"><p>No statements filed.</p></div>
+                        <div class="notice-box">
+                            <p><strong>Note on Payments:</strong> To resolve statements, please call our office directly at <strong>(978) 851-2401</strong> to finalize payment methods over the phone.</p>
+                        </div>
+                    </div>
+                    <div class="dash-card">
+                        <h3>Insurance Audit Tracking</h3>
+                        <p>Keep your health insurance records valid. Upload a clear photograph of your provider card to ensure continuous coverage documentation.</p>
+                        <div class="file-drop-area">
+                            <input type="file" id="insuranceFile" accept="image/*">
+                            <p>Select or snap snapshot verification image</p>
+                        </div>
+                        <button id="uploadInsuranceBtn" class="accent-btn" style="margin-top: 15px;">Log Upload Event</button>
+                        <p id="insuranceStatus" style="margin-top: 10px; font-weight: bold;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="chatView" class="view-layer">
+                <h2>Direct Care Communication</h2>
+                <div class="chat-container">
+                    <div class="chat-box" id="doctorChatBox"></div>
+                    <div class="chat-input-area">
+                        <input type="text" id="doctorMsgInput" placeholder="Type a message to your assigned doctor...">
+                        <button id="sendDoctorMsgBtn">Send</button>
+                    </div>
+                </div>
+                <p class="med-disclaimer">⚠️ <strong>EMERGENCY DISCLAIMER:</strong> Do not use this chat channel for acute medical crises or severe tooth trauma emergencies. If you are experiencing an immediate threat to your health, please call <strong>911</strong> immediately.</p>
+            </div>
+
+            <div id="aiView" class="view-layer">
+                <h2>Clinical Assistant AI</h2>
+                <div class="chat-container">
+                    <div class="chat-box" id="aiChatBox">
+                        <div class="msg system-msg">Hello! I am your conversational dental assistant. Ask me questions about dental alignment structures, hygiene best practices, or clear aligner upkeep.</div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="aiMsgInput" placeholder="Ask the AI Assistant a question...">
+                        <button id="sendAiMsgBtn">Ask AI</button>
+                    </div>
+                </div>
+                <p class="med-disclaimer">⚠️ <strong>CRITICAL DISCLAIMER:</strong> This tool utilizes a localized Artificial Intelligence engine which cannot substitute for definitive diagnostics. Advice provided here may occasionally contain analytical inaccuracies. Always corroborate treatment guidelines with your physical orthodontist. For physical medical emergencies, call <strong>911</strong> immediately.</p>
+            </div>
+
+            <div id="loggerView" class="view-layer">
+                <h2>Daily Routine Tracker</h2>
+                <div class="dash-card" style="max-width: 500px;">
+                    <h3>Today's Routine Check</h3>
+                    <p>Log your daily actions to automatically update your tracking records for your doctor's assessment workflow:</p>
+                    <form id="routineForm" class="checkbox-form">
+                        <label><input type="checkbox" id="brushCheck"> Brushed Teeth (2x Daily)</label>
+                        <label><input type="checkbox" id="retainerCheck"> Wore Orthodontic Retainers</label>
+                        <label><input type="checkbox" id="flossCheck"> Flossed Interdental Spaces</label>
+                        <button type="submit" class="accent-btn" style="margin-top: 15px;">Commit Log Entry</button>
+                    </form>
+                    <p id="loggerStatus" style="margin-top:10px; font-weight:bold;"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="dashboard.js"></script>
+</body>
+</html>
