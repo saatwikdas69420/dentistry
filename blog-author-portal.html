@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Portal | Orthodontic Associates</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog-author-portal.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="staff-page.html">Back to Home</a>
+        <a href="blog-library.html">View Live Blog</a>
+        <a href="blog-library.html" id="logo">
+            <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_logo.webp" class="nav-logo" alt="Logo">
+        </a>
+    </div>
+
+    <div class="portal-container">
+        <div id="authView" class="view-section active">
+            <h2 class="section-title">Author Login</h2>
+            <form id="loginForm" class="portal-form">
+                <input type="email" id="email" placeholder="Email Address" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" class="primary-btn">Login</button>
+                <p id="loginError" class="error-msg"></p>
+            </form>
+        </div>
+
+        <div id="dashboardView" class="view-section">
+            <div class="dashboard-header">
+                <h2 class="section-title">Write a New Article</h2>
+                <button id="logoutBtn" class="secondary-btn">Logout</button>
+            </div>
+            
+            <form id="postForm" class="portal-form">
+                <label>Article Title</label>
+                <input type="text" id="postTitle" placeholder="e.g., The Benefits of Invisalign" required>
+                
+                <label>Short Excerpt</label>
+                <textarea id="postExcerpt" rows="2" placeholder="A short summary for the main feed..." required></textarea>
+                
+                <label>Header Image URL</label>
+                <input type="url" id="postImage" placeholder="https://example.com/image.jpg">
+                
+                <label>Full Content</label>
+                <textarea id="postContent" rows="10" placeholder="Write the full article here..." required></textarea>
+                
+                <button type="submit" id="submitPostBtn" class="primary-btn">Publish Article</button>
+                <p id="postStatus" class="status-msg"></p>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="blog-author-portal.js"></script>
+</body>
+</html>
