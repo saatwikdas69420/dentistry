@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Portal - Orthodontic Associates of New England</title>
+    <link rel="stylesheet" href="staff-home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <div id="password-overlay" class="overlay">
+        <div class="lock-box">
+            <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_logo.webp" alt="Logo" class="lock-logo">
+            <h2>Staff Portal Access</h2>
+            <p>Please enter the authorization password to proceed.</p>
+            <input type="password" id="portal-password" placeholder="Enter Password">
+            <button id="submit-pass-btn">Unlock Portal</button>
+            <p id="error-message" class="error-hidden">Incorrect password. Access denied.</p>
+        </div>
+    </div>
+
+    <div id="portal-content" class="content-hidden">
+        <div class="navbar">
+            <a href="dr-portal.html">Doctor Portal</a>
+            <a href="blog-author-portal.html">Blog Author Portal</a>
+            <a href="staff-home.html" class="active">Staff Home</a>
+            <a href="index.html" id="logo">
+                <img src="https://orthodonticassociatesofnewengland.com/cache/custom_images_logo.webp" class="nav-logo" alt="Logo">
+            </img ></a>
+        </div>
+
+        <div class="dashboard-container">
+            <header class="dashboard-header">
+                <h1>Welcome Back, Staff Team</h1>
+                <p>Monitor your daily clinic appointments, billing operations, and new incoming patient consultations here.</p>
+            </header>
+
+            <div class="dashboard-grid">
+                <section class="dashboard-card">
+                    <div class="card-header">
+                        <h2><i class="fa fa-calendar"></i> Recent Appointments</h2>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="appointments-table">
+                            <thead>
+                                <tr>
+                                    <th>Patient</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Doctor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="4" class="loading">Fetching records...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="dashboard-card">
+                    <div class="card-header">
+                        <h2><i class="fa fa-credit-card"></i> Recent Billings</h2>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="billings-table">
+                            <thead>
+                                <tr>
+                                    <th>Invoice ID</th>
+                                    <th>Patient</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="4" class="loading">Fetching records...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="dashboard-card full-width">
+                    <div class="card-header">
+                        <h2><i class="fa fa-wpforms"></i> New Consultation Registrations</h2>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="consultations-table">
+                            <thead>
+                                <tr>
+                                    <th>Applicant Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Preferred Day</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="5" class="loading">Fetching records...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="staff-home.js"></script>
+</body>
+</html>
