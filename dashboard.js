@@ -147,6 +147,7 @@ document.getElementById('routineForm').addEventListener('submit', async (e) => {
 });
 
 // Featherless AI API Connection Interface Wrapper 
+// Featherless AI API Connection Interface Wrapper 
 document.getElementById('sendAiMsgBtn').addEventListener('click', async () => {
     const input = document.getElementById('aiMsgInput');
     const box = document.getElementById('aiChatBox');
@@ -156,32 +157,63 @@ document.getElementById('sendAiMsgBtn').addEventListener('click', async () => {
     input.value = '';
 
     // Append User message to UI
-    const uDiv = document.createElement('div'); uDiv.className = 'msg patient'; uDiv.textContent = userText;
+    const uDiv = document.createElement('div'); 
+    uDiv.className = 'msg patient'; 
+    uDiv.textContent = userText;
     box.appendChild(uDiv);
 
     // AI thinking state placeholder
-    const tDiv = document.createElement('div'); tDiv.className = 'msg ai'; tDiv.textContent = 'Analyzing response metrics...';
+    const tDiv = document.createElement('div'); 
+    tDiv.className = 'msg ai'; 
+    tDiv.textContent = 'Analyzing response metrics...';
     box.appendChild(tDiv);
     box.scrollTop = box.scrollHeight;
 
-    try {
-        // TODO: Replace with your secure endpoint configuration or logic
-        const response = await fetch('https://api.featherless.ai/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer YOUR_FEATHERLESS_DEEPSEEK_API_KEY`
-            },
-            body: JSON.stringify({
-                model: "deepseek-ai/DeepSeek-V3", // naturally adapt to preferred variants
-                messages: [{ role: "user", content: userText }]
-            })
-        });
-        const resData = await response.json();
-        tDiv.textContent = resData.choices[0].message.content;
-    } catch (err) {
-        tDiv.textContent = "Unable to reach deep reasoning system nodes. Check structural configuration properties.";
+    // 1. Define the AI Fetch Function
+    async function askAIAssistant(userMessage) {
+        const apiKey = "rc_1eee4efecb35e9ef273d95a8cce74ae488f0f4b5b65b7ee98f6cf92c9d225b4b"; // Replace with your actual key safely
+        const endpoint = "https://api.featherless.ai/v1/chat/completions"; 
+
+        try {
+            const response = await fetch(endpoint, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${apiKey}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    model: "deepseek-ai/DeepSeek-R1-0528", 
+                    messages: [
+                        { role: "system", content: "You are a helpful dental assistant made for the patients of Orthodontic Associates of New England. Keep your answers brief, friendly, and conversational (1-2 sentences maximum). DO NOT use any Markdown formatting (no asterisks, no bold text). If the user ever describes themselves in a scenario that sounds serious, redirect it to talk to the doctor or suggest that it might be an emergency." },
+                        { role: "user", content: userMessage }
+                    ],
+                    temperature: 1 
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error("API Error Details:", errorData);
+                return "Error: Unable to process request. Check console.";
+            }
+
+            const data = await response.json();
+            return data.choices[0].message.content;
+
+        } catch (error) {
+            console.error("Network Error:", error);
+            return "Network error. Please try again.";
+        }
     }
+  
+    const rawResponse = await askAIAssistant(userText);
+    
+
+    const cleanResponse = rawResponse.replace(/<think>[\s\S]*?<\/think>\n?/gi, '').trim();
+    
+    tDiv.textContent = cleanResponse;
+    box.scrollTop = box.scrollHeight;
+
 });
 
 document.getElementById('logoutBtn').addEventListener('click', async () => {
