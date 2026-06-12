@@ -1,3 +1,17 @@
+#staff {
+  float: center;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+#staff:hover {
+  background-color: #87CEEB;
+}
+
 /* Navbar container */
 .navbar {
   position: fixed;
