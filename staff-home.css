@@ -1,0 +1,215 @@
+/* Base Layout & inherited style tokens */
+body {
+    margin: 0;
+    padding-top: 60px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+/* Navbar mirroring style.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.nav-logo {
+    height: 40px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 15px;
+}
+
+.navbar a {
+    float: right;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar a:hover, .navbar a.active {
+    background-color: #87CEEB; /* Signature light blue overlay tint */
+}
+
+#logo {
+    float: left;
+}
+
+#logo:hover {
+    background-color: white;
+}
+
+/* Gatekeeper Lockout Screen Overlays */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.95);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lock-box {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    max-width: 400px;
+    width: 90%;
+}
+
+.lock-logo {
+    max-height: 50px;
+    margin-bottom: 20px;
+}
+
+.lock-box h2 {
+    color: #0b5394;
+    margin-bottom: 10px;
+}
+
+.lock-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.lock-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0b5394;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.lock-box button:hover {
+    background-color: #083c6b;
+}
+
+.error-hidden { display: none; }
+.error-visible { color: #cc0000; font-size: 14px; margin-top: 10px; }
+
+/* Control hiding/showing dashboard states */
+.content-hidden { display: none; }
+.content-visible { display: block; }
+
+/* Dashboard Structural Grid */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.dashboard-header h1 {
+    color: #0b5394;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.dashboard-card.full-width {
+    grid-column: span 2;
+}
+
+.card-header h2 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f4f7f6;
+    padding-bottom: 10px;
+}
+
+.card-header i {
+    color: #87CEEB;
+    margin-right: 8px;
+}
+
+/* Data Tables inside cards */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    padding: 12px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+    color: #334155;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.loading {
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+/* Responsive adjustments */
+@media(max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-card.full-width {
+        grid-column: span 1;
+    }
+}
